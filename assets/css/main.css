@@ -1,0 +1,77 @@
+/* ═══════════════════════════════════════
+   main.css — مشترک کل پروژه
+   navbar, footer, body, buttons, utilities
+════════════════════════════════════════ */
+
+/* ─── Base ─── */
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Vazirmatn', 'Inter', sans-serif; }
+body { background-color: #0f0f1a; color: #e0e0e0; }
+a { transition: color 0.2s; }
+
+/* ─── Navbar ─── */
+.navbar { background: linear-gradient(135deg, #1a1a2e, #16213e); }
+.navbar-brand { font-weight: 700; font-size: 2.2rem; color: #e94560 !important; }
+.nav-link { color: rgba(255,255,255,0.85) !important; font-weight: 500; transition: color 0.2s; }
+.nav-link:hover, .nav-link.active { color: #e94560 !important; }
+.nav-btn-login { border: 1px solid rgba(255,255,255,0.3); color: #fff; padding: 6px 18px; border-radius: 6px; font-size: 0.88rem; text-decoration: none; transition: all 0.2s; }
+.nav-btn-login:hover { border-color: #e94560; color: #e94560; }
+.nav-btn-register { background: #e94560; color: #fff !important; padding: 6px 18px; border-radius: 6px; font-size: 0.88rem; text-decoration: none; border: none; transition: background 0.2s; }
+.nav-btn-register:hover { background: #c73652; color: #fff !important; }
+
+/* ─── Page Header ─── */
+.page-header {
+  background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+  padding: 70px 0 50px; text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.page-header h1 { font-size: 2.2rem; font-weight: 700; color: #fff; }
+.page-header h1 span { color: #e94560; }
+.page-header p { color: rgba(255,255,255,0.5); margin-top: 8px; font-size: 0.9rem; }
+.breadcrumb-custom { color: rgba(255,255,255,0.35); font-size: 0.82rem; margin-bottom: 1rem; }
+.breadcrumb-custom a { color: #e94560; text-decoration: none; }
+
+/* ─── Section Titles ─── */
+.section-title { font-size: 1.7rem; font-weight: 700; color: #fff; margin-bottom: 0.3rem; }
+.section-title span { color: #e94560; }
+.section-sub { color: rgba(255,255,255,0.45); font-size: 0.85rem; margin-bottom: 2rem; }
+.section-subtitle { color: rgba(255,255,255,0.5); margin-bottom: 2.5rem; }
+
+/* ─── Buttons ─── */
+.btn-primary-custom {
+  background: #e94560; border: none; padding: 12px 32px;
+  border-radius: 8px; font-weight: 600; color: white;
+  text-decoration: none; transition: all 0.3s; display: inline-block;
+}
+.btn-primary-custom:hover { background: #c73652; transform: translateY(-2px); color: white; }
+
+.btn-outline-custom {
+  background: transparent; color: #fff;
+  border: 2px solid rgba(255,255,255,0.25);
+  padding: 12px 32px; border-radius: 8px; font-weight: 500;
+  text-decoration: none; transition: all 0.3s; display: inline-block;
+}
+.btn-outline-custom:hover { border-color: #e94560; color: #e94560; }
+
+/* ─── Dark Card ─── */
+.dark-card {
+  background: #16213e; border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px; transition: all 0.3s;
+}
+.dark-card:hover { border-color: #e94560; transform: translateY(-4px); box-shadow: 0 10px 30px rgba(233,69,96,0.15); }
+
+/* ─── Stats ─── */
+.stats-section { background: #16213e; color: white; padding: 50px 0; border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); }
+.stat-number { font-size: 2.5rem; font-weight: 700; color: #e94560; }
+.stat-label { color: rgba(255,255,255,0.7); font-size: 0.95rem; }
+
+/* ─── Footer ─── */
+footer { background: #16213e; color: rgba(255,255,255,0.7); padding: 1px;}
+footer h5 { color: white; font-weight: 600; margin-bottom: 1rem; }
+footer a { color: rgba(255,255,255,0.6); text-decoration: none; display: block; margin-bottom: 0.4rem; transition: color 0.2s; }
+footer a:hover { color: #e94560; }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; margin-top: 10px; text-align: center; font-size: 0.85rem; }
+
+/* ─── Utilities ─── */
+.text-accent { color: #e94560; }
+.bg-dark-card { background: #16213e; }
+.border-subtle { border: 1px solid rgba(255,255,255,0.07); }

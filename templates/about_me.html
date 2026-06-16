@@ -1,0 +1,195 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- Page Header -->
+<section class="page-header">
+  <div class="container">
+    <div class="breadcrumb-custom"><a href="/">خانه</a> / درباره من</div>
+    <h1>درباره <span>من</span> · About Me</h1>
+    <p>دانشجوی مهندسی کامپیوتر، توسعه دهنده بک اند — Computer engineering Student, Back-end Developer</p>
+  </div>
+</section>
+
+<!-- Profile -->
+<section class="profile-section">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-12 col-md-4 text-center">
+        <div class="avatar-lg">👨‍💻</div>
+        <div class="social-links justify-content-center">
+          <a href="#" class="social-btn">🐙 GitHub</a>
+          <a href="#" class="social-btn">💼 LinkedIn</a>
+          <a href="#" class="social-btn">🐦 Instagram</a>
+        </div>
+      </div>
+      <div class="col-12 col-md-8">
+        <h2 class="profile-name">کیا اعلم | Kia Aalam</h2>
+        <p class="profile-role">Back-end Developer · Django</p>
+        <p class="profile-bio">
+          سلام! من کیا هستم، توسعه‌دهنده وب با بیش از 2 سال تجربه در ساخت اپلیکیشن‌های وب با Python و Django.
+          علاقه‌مند به آموزش و اشتراک‌گذاری دانش هستم و سعی میکنم مفاهیم پیچیده رو ساده توضیح بدم.
+        </p>
+        <p class="profile-bio mt-3">
+          Hi! I'm Kia, a web developer passionate about building clean, scalable applications and teaching Persian-speaking developers.
+        </p>
+        <div class="d-flex gap-3 flex-wrap mt-4">
+          <a href="{% url 'contact' %}" class="btn-cta" style="padding: 10px 24px;">📩 تماس با من</a>
+          <a href="#" class="btn-cta-outline" style="padding: 10px 24px;">⬇ دانلود رزومه</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Skills -->
+<section class="skills-section">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-12 col-md-6">
+        <h3 class="section-title">مهارت‌ها · <span>Skills</span></h3>
+        <p class="section-sub">سطح تسلط در تکنولوژی‌های اصلی</p>
+        <div class="skill-bar-wrap">
+          <div class="skill-bar-header"><span>Python / Django</span><span>90%</span></div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:90%"></div></div>
+        </div>
+        <div class="skill-bar-wrap">
+          <div class="skill-bar-header"><span>JavaScript / React</span><span>80%</span></div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:80%"></div></div>
+        </div>
+        <div class="skill-bar-wrap">
+          <div class="skill-bar-header"><span>PostgreSQL / SQL</span><span>75%</span></div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:75%"></div></div>
+        </div>
+        <div class="skill-bar-wrap">
+          <div class="skill-bar-header"><span>Docker / DevOps</span><span>65%</span></div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:65%"></div></div>
+        </div>
+        <div class="skill-bar-wrap">
+          <div class="skill-bar-header"><span>Linux / Bash</span><span>70%</span></div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:70%"></div></div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <h3 class="section-title">ابزارها · <span>Tools</span></h3>
+        <p class="section-sub">تکنولوژی‌هایی که باهاشون کار میکنم</p>
+        <div class="tech-grid">
+          <span class="tech-badge">🐍 Python</span>
+          <span class="tech-badge">🌐 Django</span>
+          <span class="tech-badge">🌿 Git</span>
+          <span class="tech-badge">🗄️ PostgreSQL</span>
+          <!-- 
+          <span class="tech-badge">🔌 REST API</span> 
+          <span class="tech-badge">☁️ AWS</span>
+          <span class="tech-badge">🐳 Docker</span>
+          <span class="tech-badge">🐧 Linux</span>
+          <span class="tech-badge">📦 Redis</span>
+          <span class="tech-badge">⚛️ React</span>
+          <span class="tech-badge">🧪 Pytest</span>
+          -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Timeline -->
+<section class="timeline-section">
+  <div class="container">
+    <div class="row g-5">
+
+      <!-- Experience -->
+      <div class="col-12 col-md-6">
+        <h3 class="section-title mb-1">تجربه کاری · <span>Experience</span></h3>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">1403 - ...</div>
+            <div class="timeline-title">Junior Developer</div>
+            <div class="timeline-place">فریلنسر</div>
+            <div class="timeline-desc">شروع کار حرفه‌ای، ساخت پروژه‌های کوچک و یادگیری مستمر.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Education -->
+      <div class="col-12 col-md-6">
+        <h3 class="section-title mb-1">تحصیلات · <span>Education</span></h3>
+        <p class="section-sub">سوابق تحصیلی</p>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">1403 - ...</div>
+            <div class="timeline-title">کارشناسی مهندسی کامپیوتر</div>
+            <div class="timeline-place">دانشگاه آزاد مشهد</div>
+            <div class="timeline-desc">تمرکز روی مهندسی نرم افزار، الگوریتم ها، توسعه  اپ و اتصال به پایگاه داده</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">1405</div>
+            <div class="timeline-title">Django Framework</div>
+            <div class="timeline-place">آموزش آنلاین</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Values -->
+<section class="values-section">
+  <div class="container">
+    <div class="text-center mb-4">
+      <h3 class="section-title">ارزش‌ها · <span>Values</span></h3>
+      <p class="section-sub">چیزهایی که برام مهمه</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-12 col-md-3">
+        <div class="value-card">
+          <div class="value-icon">📖</div>
+          <div class="value-title">یادگیری مستمر</div>
+          <div class="value-desc">هر روز چیز جدیدی یاد میگیرم. رشته کامپیوتر .یعنی یادگیری دائم.</div>
+        </div>
+      </div>
+      <div class="col-12 col-md-3">
+        <div class="value-card">
+          <div class="value-icon">✨</div>
+          <div class="value-title">کد تمیز</div>
+          <div class="value-desc">کدی مینویسم که قابل خواندن، نگهداری و تست باشه.</div>
+        </div>
+      </div>
+      <div class="col-12 col-md-3">
+        <div class="value-card">
+          <div class="value-icon">🤝</div>
+          <div class="value-title">اشتراک‌گذاری دانش</div>
+          <div class="value-desc">باور دارم آموزش به دیگران جامعه برنامه‌نویسی رو قوی‌تر میکنه.</div>
+        </div>
+      </div>
+      <div class="col-12 col-md-3">
+        <div class="value-card">
+          <div class="value-icon">🎯</div>
+          <div class="value-title">تمرکز روی نتیجه</div>
+          <div class="value-desc">مهم‌ترین چیز اینه که محصول نهایی ارزش واقعی ایجاد کنه.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <h2>جهت همکاری پیام دهید . send message for collaboration</h2>
+    <a href="#" class="social-btn">🐦 Instagram</a>
+    <a href="{% url 'contact' %}" class="btn-cta">📩 تماس با من</a>
+    <a href="{% url 'courses' %}" class="btn-cta-outline">🎓 دوره ها</a>
+  </div>
+</section>
+
+{% endblock %}

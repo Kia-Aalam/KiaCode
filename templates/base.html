@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    {% include 'includes/header.html' %}
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+      {% include 'includes/navbar.html' %}
+    </nav>
+
+    {% block content %}
+    <!-- ═══════════════════════════════════════
+     HERO / معرفی کوتاه
+    ════════════════════════════════════════ -->
+    <section class="hero-section text-center">
+      <div class="container">
+        <div class="hero-avatar mx-auto">👨‍💻</div>
+        <h1 class="hero-name">سلام، من <span>کیا اعلم</span> هستم</h1>
+        <p class="hero-title">
+          Back-end Developer · Django
+        </p>
+        <p class="hero-bio">
+          توسعه‌دهنده وب<br />
+          اینجا دوره‌ها و مقالاتم رو باهاتون به اشتراک میذارم
+        </p>
+        <div class="d-flex gap-3 justify-content-center flex-wrap">
+          <a href="{% url 'courses_list' %}" class="btn" style="color:#e94560;">مشاهده دوره‌ها</a>
+          <a href="#" class="btn" style="color:#e94560;">آخرین مقالات</a>
+        </div>
+        <div class="skill-tags">
+          <span class="skill-tag">MySQL</span>
+          <span class="skill-tag">Html-Css</span>
+          <span class="skill-tag">C++</span>
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">Django</span>
+          <span class="skill-tag">Python</span>
+        </div>
+      </div>
+    </section>
+
+    <hr class="my-5" />
+
+    <!-- ═══════════════════════════════════════
+     STATS BAR
+    ════════════════════════════════════════ -->
+    <section class="stats-bar mt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-6 col-md-3 stat-item mb-2">
+            <div class="stat-num">0</div>
+            <div class="stat-lbl">دانشجو / Students</div>
+          </div>
+          <div class="col-6 col-md-3 stat-item mb-2">
+            <div class="stat-num">0</div>
+            <div class="stat-lbl">مقاله / Articles</div>
+          </div>
+          <div class="col-6 col-md-3 stat-item mb-2">
+            <div class="stat-num">Soon</div>
+            <div class="stat-lbl">دوره / Courses</div>
+          </div>
+          <div class="col-6 col-md-3 stat-item mb-2">
+            <div class="stat-num">2 سال</div>
+            <div class="stat-lbl">تجربه / Experience</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+     BLOG SECTION / آخرین مقالات
+    ════════════════════════════════════════ -->
+    <section class="blog-section mt-5">
+      <div class="container">
+        <div
+          class="section-header d-flex justify-content-between align-items-start"
+        >
+          <div>
+            <h2>آخرین <span>مقالات</span> · Latest Posts</h2>
+            <p>جدیدترین نوشته‌ها در حوزه برنامه‌نویسی و توسعه وب</p>
+          </div>
+          <a href="/blog" class="see-all-link mt-1">همه مقالات ←</a>
+        </div>
+
+        <!--
+        <div class="row g-4">
+          / Featured Post /
+          <div class="col-12 col-lg-5">
+            <a href="/blog/django-rest-api" class="blog-card-featured h-100">
+              <div
+                class="blog-thumb-featured"
+                style="background: linear-gradient(135deg, #1a1a2e, #0f3460)"
+              >
+                🚀
+              </div>
+              <div class="blog-body p-4">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <span class="featured-badge">ویژه</span>
+                  <span class="blog-category">Django</span>
+                </div>
+                <h3 class="blog-title" style="font-size: 1.15rem">
+                  ساخت REST API با Django از صفر تا استقرار روی سرور
+                </h3>
+                <p class="blog-excerpt">
+                  در این مقاله کامل یاد میگیریم چطور یه API حرفه‌ای با Django
+                  REST Framework بسازیم، تست بنویسیم و روی VPS دیپلوی کنیم.
+                </p>
+                <div class="blog-meta">
+                  <span>۱۵ خرداد ۱۴۰۳</span>
+                  <span>⏱ ۱۲ دقیقه مطالعه</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          -->
+
+          {% if blog.model %}
+          <!-- Regular Posts -->
+          <div class="col-12 col-lg-7">
+            <div class="row g-4">
+              <div class="col-12 col-md-6">
+                <a href="/blog/python-tips" class="blog-card">
+                  <div
+                    class="blog-thumb"
+                    style="
+                      background: linear-gradient(135deg, #667eea22, #764ba222);
+                    "
+                  >
+                    {% if blog.image %}
+                      <img src="{{blog.image}}" alt="image">
+                    {% else %}
+                      <!-- <img src="" alt=""> -->
+                    {% endif %}
+                  </div>
+                  <div class="blog-body">
+                    <div class="blog-category">Python</div>
+                    <h4 class="blog-title">{{blog.title}}</h4>
+                    <p class="blog-excerpt">
+                      {{blog.description}}
+                    </p>
+                    <div class="blog-meta">
+                      <span>{{blog.date}}</span>
+                      <span class="blog-tag">{{blog.category}}</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+      </div>
+    </section>
+    {% endblock %}
+
+    <!-- Footer -->
+    <footer>{% include 'includes/footer.html' %}</footer>
+
+    <!-- Js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

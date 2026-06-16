@@ -1,0 +1,42 @@
+/* ═══════════════════════════════════════
+   about.css — فقط صفحه درباره من
+════════════════════════════════════════ */
+
+/* ─── Profile ─── */
+.avatar-lg { width: 160px; height: 160px; border-radius: 50%; border: 4px solid #e94560; background: linear-gradient(135deg, #e94560, #764ba2); display: flex; align-items: center; justify-content: center; font-size: 4rem; margin: 0 auto 1.5rem; box-shadow: 0 0 40px rgba(233,69,96,0.3); }
+.profile-name { font-size: 1.9rem; font-weight: 700; color: #fff; }
+.profile-role { color: #e94560; font-size: 0.95rem; margin: 6px 0 16px; letter-spacing: 0.5px; }
+.profile-bio { color: rgba(255,255,255,0.7); line-height: 1.9; font-size: 0.97rem; max-width: 560px; }
+.social-btn { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.75); padding: 8px 18px; border-radius: 8px; text-decoration: none; font-size: 0.85rem; transition: all 0.2s; }
+.social-btn:hover { background: #e94560; border-color: #e94560; color: #fff; }
+
+/* ─── Skills ─── */
+.skill-bar-wrap { margin-bottom: 16px; }
+.skill-bar-header { display: flex; justify-content: space-between; font-size: 0.88rem; color: rgba(255,255,255,0.75); margin-bottom: 6px; }
+.skill-bar-bg { background: rgba(255,255,255,0.08); border-radius: 20px; height: 8px; overflow: hidden; }
+.skill-bar-fill { height: 100%; border-radius: 20px; background: linear-gradient(90deg, #e94560, #764ba2); }
+.tech-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 1.5rem; }
+.tech-badge { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.8); padding: 7px 16px; border-radius: 8px; font-size: 0.83rem; transition: all 0.2s; }
+.tech-badge:hover { border-color: #e94560; color: #e94560; }
+
+/* ─── Timeline ─── */
+.timeline { position: relative; padding-right: 30px; }
+.timeline::before { content: ''; position: absolute; right: 6px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, #e94560, transparent); }
+.timeline-item { position: relative; margin-bottom: 36px; }
+.timeline-dot { position: absolute; right: -30px; top: 5px; width: 14px; height: 14px; border-radius: 50%; background: #e94560; border: 2px solid #0f0f1a; box-shadow: 0 0 10px rgba(233,69,96,0.5); }
+.timeline-date { font-size: 0.78rem; color: #e94560; font-weight: 600; letter-spacing: 0.5px; margin-bottom: 4px; }
+.timeline-title { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 4px; }
+.timeline-place { font-size: 0.85rem; color: rgba(255,255,255,0.45); margin-bottom: 8px; }
+.timeline-desc { font-size: 0.88rem; color: rgba(255,255,255,0.6); line-height: 1.7; }
+
+/* ─── Values ─── */
+.value-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 28px; text-align: center; transition: all 0.3s; }
+.value-card:hover { border-color: #e94560; transform: translateY(-4px); }
+.value-icon { font-size: 2.5rem; margin-bottom: 14px; }
+.value-title { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
+.value-desc { font-size: 0.85rem; color: rgba(255,255,255,0.55); line-height: 1.7; }
+
+/* ─── CTA ─── */
+.cta-section { padding: 70px 0; text-align: center; }
+.cta-section h2 { font-size: 1.8rem; font-weight: 700; color: #fff; margin-bottom: 0.8rem; }
+.cta-section p { color: rgba(255,255,255,0.55); margin-bottom: 2rem; }

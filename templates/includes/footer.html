@@ -1,0 +1,71 @@
+<footer class="footer mt-5 pb-1">
+  <div class="container">
+    <div class="row">
+      <!-- معرفی -->
+      <div class="col-12 col-md-4">
+        <h4 class="mb-3" style=" color: #e94560;">🎓 کیا کد</h4>
+        <p>
+          آموزش برنامه‌نویسی و توسعه وب با تمرکز بر پروژه‌های عملی، پایتون، جنگو
+          و پایگاه داده.
+        </p>
+      </div>
+
+      <!-- دوره‌ها -->
+      <div class="col-6 col-md-2">
+        <h5 class="mb-3">دوره‌ها</h5>
+
+        <a href="#" class="footer-link d-block mb-2"> پایتون </a>
+
+        <a href="#" class="footer-link d-block mb-2"> جنگو </a>
+
+        <a href="#" class="footer-link d-block"> SQL </a>
+      </div>
+
+      <!-- صفحات -->
+      <div class="col-6 col-md-2">
+        <h5 class="mb-3">سایت</h5>
+
+        <a href="#" class="footer-link d-block mb-2"> وبلاگ </a>
+
+        <a href="{% url 'about_me' %}" class="footer-link d-block mb-2">
+          درباره من
+        </a>
+
+        <a href="{% url 'contact' %}" class="footer-link d-block">
+          ارتباط با من
+        </a>
+      </div>
+
+      <!-- فرم پیام -->
+      <div class="col-12 col-md-4">
+        <h5 class="mb-3">ارسال پیام</h5>
+
+        <form method="post">
+          {% csrf_token %}
+
+          <input
+            type="text"
+            name="username"
+            class="form-control mb-2"
+            placeholder="نام شما"
+          />
+
+          <textarea
+            name="message"
+            class="form-control mb-2"
+            rows="3"
+            placeholder="پیام شما"
+          ></textarea>
+
+          <button type="submit" class="btn" style=" background: #e94560; color: white; border: none; margin-top: 2px; ">ارسال</button>
+        </form>
+      </div>
+    </div>
+
+    <hr class="my-4" />
+
+    <div class="text-center">
+      <p class="mb-0">© 1405 کیا کد - تمامی حقوق محفوظ است</p>
+    </div>
+  </div>
+</footer>
