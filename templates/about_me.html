@@ -1,10 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block header %}
-<link rel="stylesheet" href="{% static 'css/about.css' %}">
-{% endblock %}
-
 {% block content %}
 
 <!-- Page Header -->
@@ -188,7 +184,7 @@
     <h2>جهت همکاری پیام دهید . send message for collaboration</h2>
     <a href="#" class="social-btn">🐦 Instagram</a>
     <a href="{% url 'contact' %}" class="btn-cta">📩 تماس با من</a>
-    <a href="{% url 'courses' %}" class="btn-cta-outline">🎓 دوره ها</a>
+    <a href="{% url 'courses_list' %}" class="btn-cta-outline">🎓 دوره ها</a>
   </div>
 </section>
 
