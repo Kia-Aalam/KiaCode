@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="fa" dir="rtl">
   <head>
@@ -16,7 +17,7 @@
     ════════════════════════════════════════ -->
     <section class="hero-section text-center">
       <div class="container">
-        <div class="hero-avatar mx-auto">👨‍💻</div>
+        <div><img src="{% static 'img/hero-avatar.png' %}" class="hero-avatar mx-auto" alt="👨‍💻"></div>
         <h1 class="hero-name">سلام، من <span>کیا اعلم</span> هستم</h1>
         <p class="hero-title">
           Back-end Developer · Django
