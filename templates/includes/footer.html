@@ -13,19 +13,18 @@
       <!-- دوره‌ها -->
       <div class="col-6 col-md-2">
         <h5 class="mb-3">دوره‌ها</h5>
-
-        <a href="#" class="footer-link d-block mb-2"> پایتون </a>
-
-        <a href="#" class="footer-link d-block mb-2"> جنگو </a>
-
-        <a href="#" class="footer-link d-block"> SQL </a>
+        {% if courses.model %}
+          {% for course in courses %}
+            <a href="{% url 'courses_list' %}" class="footer-link d-block mb-2"> {{course.title}} </a>
+          {% endfor %}
+        {% endif %}
       </div>
 
       <!-- صفحات -->
       <div class="col-6 col-md-2">
         <h5 class="mb-3">سایت</h5>
 
-        <a href="#" class="footer-link d-block mb-2"> وبلاگ </a>
+        <a href="#" class="footer-link d-block mb-2"> بلاگ </a>
 
         <a href="{% url 'about_me' %}" class="footer-link d-block mb-2">
           درباره من
