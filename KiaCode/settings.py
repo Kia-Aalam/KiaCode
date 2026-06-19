@@ -77,8 +77,12 @@ WSGI_APPLICATION = 'KiaCode.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'KiaCode_Project',
+        'USER': 'kia',
+        'PASSWORD': 'Taha.93',
+        'HOST': 'localhost',
+        'PORT': '5432'
     }
 }
 
