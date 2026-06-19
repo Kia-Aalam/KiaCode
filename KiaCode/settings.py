@@ -79,7 +79,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'KiaCode_Project',
-        'USER': 'kia',
+        'USER': 'postgres',
         'PASSWORD': 'Taha.93',
         'HOST': 'localhost',
         'PORT': '5432'
