@@ -65,11 +65,12 @@ a { transition: color 0.2s; }
 .stat-label { color: rgba(255,255,255,0.7); font-size: 0.95rem; }
 
 /* ─── Footer ─── */
-footer { background: #16213e; color: rgba(255,255,255,0.7); padding: 1px;}
+/* ─── Footer ─── */
+footer { background: #16213e; color: rgba(255,255,255,0.7); padding: 20px 0; margin-top: 50px; }
 footer h5 { color: white; font-weight: 600; margin-bottom: 1rem; }
 footer a { color: rgba(255,255,255,0.6); text-decoration: none; display: block; margin-bottom: 0.4rem; transition: color 0.2s; }
 footer a:hover { color: #e94560; }
-.footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; margin-top: 10px; text-align: center; font-size: 0.85rem; }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 10px; margin-top: 10px; text-align: center; font-size: 0.85rem; }
 
 /* ─── Utilities ─── */
 .text-accent { color: #e94560; }
