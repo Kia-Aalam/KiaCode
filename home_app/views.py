@@ -24,7 +24,12 @@ def contact(request):
         email = request.POST.get('email')
         subject = request.POST.get('subject')
         message = request.POST.get('message')
-        Contact.objects.create(username=username, email=email, subject=subject, message=message)
-        return redirect('contact')
+        
+        if username and email and subject and message:
+            Contact.objects.create(username=username, email=email, subject=subject, message=message)
+            return redirect('contact')
+        else:
+            error = 'لطفاً تمام فیلدها را پر کنید'
+            return render(request, 'contact.html', {'error': error})
         
     return render(request, 'contact.html')

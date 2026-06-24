@@ -15,29 +15,23 @@
 <section class="contact-section">
   <div class="container">
     <div class="row g-5">
-
+      
       <!-- Left: Info + Social -->
       <div class="col-12 col-lg-4">
-
+        
         <div class="availability">
           <span class="availability-dot"></span>
           آماده همکاری · Available for work
         </div>
-
+        
         <div class="info-card">
           <div class="info-icon">📧</div>
           <div class="info-title">Email</div>
           <div class="info-value"><a href="mailto:kiaaalam26@gmail.com">kiaaalam26@gmail.com</a></div>
         </div>
-
-        <div class="info-card">
-          <div class="info-icon">🌍</div>
-          <div class="info-title">شهر | City</div>
-          <div class="info-value">مشهد | Mashhad</div>
-        </div>
-
+        
         <!-- Social -->
-        <div class="social-card mt-4 mb-5">
+        <div class="social-card mt-3 mb-3">
           <p style="font-size:0.82rem; color:rgba(255,255,255,0.4); margin-bottom:12px; font-weight:600; letter-spacing:0.5px;">SOCIAL MEDIA</p>
           <a href="#" class="social-item">
             <span class="social-icon">🐙</span>
@@ -65,15 +59,22 @@
           </a>
         </div>
 
+        <div class="info-card">
+          <div class="info-icon">🌍</div>
+          <div class="info-title">شهر | City</div>
+          <div class="info-value">مشهد | Mashhad</div>
+        </div>
+
       </div>
 
       <!-- Right: Form -->
       <div class="col-12 col-lg-8">
 
-        <form method="post"></form>
+        <form method="post" action="{% url 'contact' %}">
           <div class="form-card">
             <h3>📨 ارسال پیام· Send a Message</h3>
               
+              {% csrf_token %}  
               <div class="form-row">
                 <div>
                   <label class="form-label-custom">نام · Name *</label>
@@ -86,26 +87,31 @@
               </div>
 
               <label class="form-label-custom">موضوع · Subject *</label>
-              <select class="form-control-custom topic-select" style="background-color: red;" name="subject">
-                <option value="" disabled selected>موضوع پیام رو انتخاب کن...</option>
-                <option>پیشنهاد همکاری / Collaboration</option>
-                <option>سوال درباره دوره‌ها / Course Question</option>
-                <option>پیشنهاد محتوا / Content Suggestion</option>
-                <option>گزارش مشکل / Bug Report</option>
-                <option>فقط سلام / Just Saying Hi</option>
+              <select class="form-control-custom topic-select" name="subject" >
+                <option style="background: #16213e; color: #fff;" value="" disabled selected>موضوع پیام رو انتخاب کن...</option>
+                <option style="background: #16213e; color: #fff;" value="Collaboration">پیشنهاد همکاری / Collaboration</option>
+                <option style="background: #16213e; color: #fff;" value="Course Question">سوال درباره دوره‌ها / Course Question</option>
+                <option style="background: #16213e; color: #fff;" value="Content Suggestion">پیشنهاد محتوا / Content Suggestion</option>
+                <option style="background: #16213e; color: #fff;" value="Bug Report">گزارش مشکل / Bug Report</option>
+                <option style="background: #16213e; color: #fff;" value="Just Saying Hi">فقط سلام / Just Saying Hi</option>
               </select>
 
               <label class="form-label-custom">پیام · Message *</label>
               <textarea class="form-control-custom" id="msgInput" placeholder="پیامت رو بنویس..." oninput="updateCount()" name="message"></textarea>
 
-              <button type="submit" class="btn-submit">ارسال · Send</button>
+              <button type="submit" class="btn btn-submit">ارسال · Send</button>
           </div>
         </form>
-        
+
       </div>
 
     </div>
   </div>
+  {% if error %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+  {% endif %}
 </section>
 
 <script src="{% static 'js/contact_js.js' %}"></script>
