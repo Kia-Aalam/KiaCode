@@ -69,37 +69,39 @@
 
       <!-- Right: Form -->
       <div class="col-12 col-lg-8">
-        <div class="form-card">
-          <h3>📨 ارسال پیام· Send a Message</h3>
 
-          <div class="form-row">
-            <div>
-              <label class="form-label-custom">نام · Name *</label>
-              <input class="form-control-custom" type="text" placeholder="محمدکیا اعلم/ Kia Aalam">
-            </div>
-            <div>
-              <label class="form-label-custom">ایمیل · Email *</label>
-              <input class="form-control-custom" type="email" placeholder="you@example.com">
-            </div>
+        <form method="post"></form>
+          <div class="form-card">
+            <h3>📨 ارسال پیام· Send a Message</h3>
+              
+              <div class="form-row">
+                <div>
+                  <label class="form-label-custom">نام · Name *</label>
+                  <input class="form-control-custom" type="text" placeholder="name" name="username">
+                </div>
+                <div>
+                  <label class="form-label-custom">ایمیل · Email *</label>
+                  <input class="form-control-custom" type="email" placeholder="you@example.com" name="email">
+                </div>
+              </div>
+
+              <label class="form-label-custom">موضوع · Subject *</label>
+              <select class="form-control-custom topic-select" style="background-color: red;" name="subject">
+                <option value="" disabled selected>موضوع پیام رو انتخاب کن...</option>
+                <option>پیشنهاد همکاری / Collaboration</option>
+                <option>سوال درباره دوره‌ها / Course Question</option>
+                <option>پیشنهاد محتوا / Content Suggestion</option>
+                <option>گزارش مشکل / Bug Report</option>
+                <option>فقط سلام / Just Saying Hi</option>
+              </select>
+
+              <label class="form-label-custom">پیام · Message *</label>
+              <textarea class="form-control-custom" id="msgInput" placeholder="پیامت رو بنویس..." oninput="updateCount()" name="message"></textarea>
+
+              <button type="submit" class="btn-submit">ارسال · Send</button>
           </div>
-
-          <label class="form-label-custom">موضوع · Subject *</label>
-          <select class="form-control-custom topic-select">
-            <option value="" disabled selected>موضوع پیام رو انتخاب کن...</option>
-            <option>💼 پیشنهاد همکاری / Collaboration</option>
-            <option>🎓 سوال درباره دوره‌ها / Course Question</option>
-            <option>📝 سوال فنی / Technical Question</option>
-            <option>🐛 گزارش مشکل / Bug Report</option>
-            <option>💡 پیشنهاد محتوا / Content Suggestion</option>
-            <option>👋 فقط سلام / Just Saying Hi</option>
-          </select>
-
-          <label class="form-label-custom">پیام · Message *</label>
-          <textarea class="form-control-custom" id="msgInput" placeholder="پیامت رو بنویس..." oninput="updateCount()"></textarea>
-          <div class="char-count"><span id="charCount">0</span> / 1000</div>
-
-          <button class="btn-submit">ارسال · Send</button>
-        </div>
+        </form>
+        
       </div>
 
     </div>
