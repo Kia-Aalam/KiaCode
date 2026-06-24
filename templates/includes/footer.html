@@ -1,31 +1,24 @@
 <footer class="footer mt-5 pb-1">
   <div class="container">
-    <div class="row">
+    <div class="row" style="justify-content: center; ">
       <!-- معرفی -->
       <div class="col-12 col-md-4">
-        <h4 class="mb-3" style=" color: #e94560;">🎓 کیا کد</h4>
+        <h4 class="mb-3" style=" color: #e94560;">🎓 کیا کد | KiaCode</h4>
         <p>
-          آموزش برنامه‌نویسی و توسعه وب با تمرکز بر پروژه‌های عملی، پایتون، جنگو
-          و پایگاه داده.
+          کیا اعلم، توسعه دهنده وب (Back-end)
+          <br>
+          کیاکد برای ارتباط با من و به اشتراک گذاری دانش و اخبار برنامه نویسی طراحی شده است.
         </p>
       </div>
-
-      <!-- دوره‌ها -->
-      <div class="col-6 col-md-2">
-        <h5 class="mb-3">دوره‌ها</h5>
-        {% if courses.model %}
-          {% for course in courses %}
-            <a href="{% url 'courses_list' %}" class="footer-link d-block mb-2"> {{course.title}} </a>
-          {% endfor %}
-        {% endif %}
-      </div>
-
+      
       <!-- صفحات -->
       <div class="col-6 col-md-2">
         <h5 class="mb-3">سایت</h5>
-
-        <a href="#" class="footer-link d-block mb-2"> بلاگ </a>
-
+        
+        <a href="{% url 'blog' %}" class="footer-link d-block mb-2"> بلاگ </a>
+        
+        <a href="{% url 'courses_list' %}" class="footer-link d-block mb-2"> دوره ها </a>
+        
         <a href="{% url 'about_me' %}" class="footer-link d-block mb-2">
           درباره من
         </a>
@@ -34,33 +27,29 @@
           ارتباط با من
         </a>
       </div>
-
-      <!-- فرم پیام -->
-      <div class="col-12 col-md-4">
-        <h5 class="mb-3">ارسال پیام</h5>
-
-        <form method="post" action="{% url 'home' %}">
-          {% csrf_token %}
-
-          <input
-            type="text"
-            name="username"
-            class="form-control mb-2"
-            placeholder="نام شما"
-          />
-
-          <textarea
-            name="message"
-            class="form-control mb-2"
-            rows="3"
-            placeholder="پیام شما"
-          ></textarea>
-
-          <button type="submit" class="btn" style=" background: #e94560; color: white; border: none; margin-top: 2px; ">ارسال</button>
-        </form>
+      
+      <!-- دوره‌ها -->
+      <div class="col-6 col-md-2">
+        <h5 class="mb-3">آخرین دوره ها</h5>
+        {% if courses.model %}
+          {% for course in courses %}
+            <a href="{% url 'courses_list' %}" class="footer-link d-block mb-2"> {{course.title}} </a>
+          {% endfor %}
+        {% endif %}
       </div>
-    </div>
 
+      <!-- مقالات -->
+      <div class="col-6 col-md-2">
+        <h5 class="mb-3">آخرین مقالات ها</h5>
+        {% if courses.model %}
+          {% for course in courses %}
+            <a href="{% url 'courses_list' %}" class="footer-link d-block mb-2"> {{course.title}} </a>
+          {% endfor %}
+        {% endif %}
+      </div>
+
+    </div>
+    
     <hr class="my-4" />
 
     <div class="text-center">
