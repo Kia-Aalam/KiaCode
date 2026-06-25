@@ -29,18 +29,28 @@
         <h2 class="profile-name">کیا اعلم | Kia Aalam</h2>
         <p class="profile-role">Back-end Developer · Django</p>
         <p class="profile-bio">
-          سلام! من کیا هستم، توسعه‌دهنده وب با بیش از 2 سال تجربه برنامه نویسی
-          <br>
-          علاقه‌مند به کدزنی، حل مسائل پیچیده و طراحی اپلیکیشن های تحت وب
+          {% if about.bio_f %}
+            {{about.bio_f}}
+          {% else %}
+            سلام! من کیا هستم، توسعه‌دهنده وب با بیش از 2 سال تجربه برنامه نویسی
+            <br>
+            علاقه‌مند به کدزنی، حل مسائل پیچیده و طراحی اپلیکیشن های تحت وب
+          {% endif %}
         </p>
         <p class="profile-bio mt-3">
-          Hello! Im Kia, web developer with over 2 years of programming experience 
-          <br>
-          I am passionate about coding, solving complex problems, and designing web applications
+          {% if about.bio_e %}
+            {{about.bio_e}}
+          {% else %}
+            Hello! Im Kia, web developer with over 2 years of programming experience 
+            <br>
+            I am passionate about coding, solving complex problems, and designing web applications
+          {% endif %}
         </p>
         <div class="d-flex gap-3 flex-wrap mt-4">
           <a href="{% url 'contact' %}" class="btn" style="color:#e94560;">📩 تماس با من</a>
-          <a href="#" class="btn" style="color:#e94560;">⬇ دانلود رزومه</a>
+          <a href="{% if about.resumes %} {{about.resumes}} 
+                   {% else %} # 
+                   {% endif %}" class="btn" style="color:#e94560;">⬇ دانلود رزومه</a>
         </div>
       </div>
     </div>
@@ -79,6 +89,11 @@
           <span class="tech-badge">🌐 Django</span>
           <span class="tech-badge">🌿 Git</span>
           <span class="tech-badge">🗄️ PostgreSQL</span>
+          {% if about.tool %}
+            {% for item in about %}
+              <span class="tech-badge">{{item.tool}}</span>
+            {% endfor %}
+          {% endif %}
         </div>
       </div>
     </div>
@@ -101,6 +116,17 @@
             <div class="timeline-place">فریلنسر</div>
             <div class="timeline-desc">شروع کار حرفه‌ای، ساخت پروژه‌های کوچک و یادگیری مستمر</div>
           </div>
+          {% if about.date_exp and item.title_exp and item.place_exp and item.descripption_exp %}
+            {% for item_exp in about %}
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">{{item_exp.date_exp}}</div>
+                <div class="timeline-title">{{item_exp.title_exp}}</div>
+                <div class="timeline-place">{{item_exp.place_exp}}</div>
+                <div class="timeline-desc"> {{item_exp.descripption_exp}} </div>
+              </div>
+            {% endfor %}
+          {% endif %}
         </div>
       </div>
 
@@ -122,6 +148,17 @@
             <div class="timeline-title">Django Framework</div>
             <div class="timeline-place">آموزش آنلاین</div>
           </div>
+          {% if about.date_edu and item.title_edu and item.place_edu and item.descripption_edu %}
+            {% for item_edu in about %}
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">{{item_edu.date_edu}}</div>
+                <div class="timeline-title">{{item_edu.title_edu}}</div>
+                <div class="timeline-place">{{item_edu.place_edu}}</div>
+                <div class="timeline-desc"> {{item_edu.descripption_edu}} </div>
+              </div>
+            {% endfor %}
+          {% endif %}
         </div>
       </div>
 

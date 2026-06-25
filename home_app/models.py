@@ -21,3 +21,22 @@ class Contact(models.Model):
     
     def __str__(self):
         return self.username
+
+class About(models.Model):
+    bio_f = models.TextField(null=True)
+    bio_e = models.TextField(null=True)
+    resumes = models.CharField(max_length=100, null=True)
+
+    tool = models.CharField(max_length=100, null=True)
+
+    # Experience
+    date_exp = models.DateField(null=True)
+    title_exp = models.CharField(max_length=100, null=True)
+    place_exp = models.CharField(max_length=100, null=True)
+    descripption_exp = models.TextField(null=True)
+    
+    # Education
+    date_edu = models.DateField(null=True)
+    title_edu = models.CharField(max_length=100, null=True)
+    place_edu = models.CharField(max_length=100, null=True)
+    descripption_edu = models.TextField(null=True) 

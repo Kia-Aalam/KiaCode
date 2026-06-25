@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from home_app.models import Footer, Contact
+from home_app.models import Footer, Contact, About
 from courses_app.models import Course
 
 def base_page(request):
@@ -16,7 +16,9 @@ def base_page(request):
     return render(request, 'base.html', context={'courses': courses})
 
 def about_me(request):
-    return render(request, 'about_me.html')
+    about = About.objects.all()
+    
+    return render(request, 'about_me.html', context={'about': about})
 
 def contact(request):
     if request.method == 'POST':
