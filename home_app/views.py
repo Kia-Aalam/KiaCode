@@ -15,7 +15,7 @@ def base_page(request):
     
     return render(request, 'base.html', context={
         'courses': courses,
-        'number': information,
+        'number': information or None,
         'blogs': blogs
     })
 
