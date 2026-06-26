@@ -7,12 +7,12 @@ def base_page(request):
     courses = Course.objects.all()
     
     # stats bar-information
-    information = Information.objects.all()
+    information = Information.objects.last()
     
     return render(request, 'base.html', context={'courses': courses, 'number': information})
 
 def about_me(request):
-    about = About.objects.all()
+    about = About.objects.last()
     
     return render(request, 'about_me.html', context={'about': about})
 
