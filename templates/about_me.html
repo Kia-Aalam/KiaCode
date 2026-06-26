@@ -47,10 +47,10 @@
           {% endif %}
         </p>
         <div class="d-flex gap-3 flex-wrap mt-4">
-          <a href="{% url 'contact' %}" class="btn" style="color:#e94560;">📩 تماس با من</a>
+          <a href="{% url 'contact' %}" class="btn btn-outline-danger home-btn">📩 تماس با من</a>
           <a href="{% if about.resumes %} {{about.resumes}} 
                    {% else %} # 
-                   {% endif %}" class="btn" style="color:#e94560;">⬇ دانلود رزومه</a>
+                   {% endif %}" class="btn btn-outline-danger home-btn">⬇ دانلود رزومه</a>
         </div>
       </div>
     </div>
@@ -213,7 +213,7 @@
 <section class="cta-section mt-5">
   <div class="container">
     <h2>جهت همکاری پیام دهید . send message for collaboration</h2>
-    <a href="{% url 'contact' %}" class="btn" style="color:#e94560;">📩 تماس با من</a>
+    <a href="{% url 'contact' %}" class="btn btn-outline-danger home-btn">📩 تماس با من</a>
   </div>
 </section>
 

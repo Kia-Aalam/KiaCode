@@ -58,3 +58,10 @@
 .cta-section { text-align: center; }
 .cta-section h2 { font-size: 1.8rem; font-weight: 700; color: #fff; margin-bottom: 0.8rem; }
 .cta-section p { color: rgba(255,255,255,0.55); margin-bottom: 2rem; }
+
+.home-btn{
+   color:#e94560;
+}
+.home-btn:hover{
+   color: #fff;
+}
