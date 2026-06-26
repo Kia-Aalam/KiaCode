@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from home_app.models import Information, Contact, About
 from courses_app.models import Course
+from blog_app.models import Blog
 
 def base_page(request):
     # course list
@@ -9,7 +10,14 @@ def base_page(request):
     # stats bar-information
     information = Information.objects.last()
     
-    return render(request, 'base.html', context={'courses': courses, 'number': information})
+    # blog
+    blogs = Blog.objects.all()
+    
+    return render(request, 'base.html', context={
+        'courses': courses,
+        'number': information,
+        'blogs': blogs
+    })
 
 def about_me(request):
     about = About.objects.last()

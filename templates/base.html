@@ -110,37 +110,38 @@
           <a href="{% url 'blog' %}" class="see-all-link mt-1">همه مقالات ←</a>
         </div>
 
-        {% if blog.model %}
-        <!-- Regular Posts -->
-        <div class="col-12 col-lg-7 mb-5">
-          <div class="row g-4">
-            <div class="col-12 col-md-6">
-              <a href="/blog/python-tips" class="blog-card">
-                <div
-                  class="blog-thumb"
-                  style="
-                    background: linear-gradient(135deg, #667eea22, #764ba222);
-                  "
-                >
+        {% if blogs %}
+          {% for blog in blogs %}
+            <div class="col-12 col-md-6 col-lg-4">
+              <a href="#" class="post-card">
+                <div class="card-img-placeholder" style="position: relative; overflow: hidden; width: 100%; height: 320px; background: #f0f0f0;">
+                  
                   {% if blog.image %}
-                  <img src="{{blog.image}}" alt="image" />
+                    <img src="{{ blog.image.url }}" alt="{{ blog.title }}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
                   {% else %}
-                  <!-- <img src="" alt=""> -->
+                    <img src="{% static 'img/default.png' %}" alt="default" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
                   {% endif %}
+                  
                 </div>
-                <div class="blog-body">
-                  <div class="blog-category">Python</div>
-                  <h4 class="blog-title">{{blog.title}}</h4>
-                  <p class="blog-excerpt">{{blog.description}}</p>
-                  <div class="blog-meta">
-                    <span>{{blog.date}}</span>
-                    <span class="blog-tag">{{blog.category}}</span>
+                <div class="post-body">
+                  <div class="post-category">{{categories.name}}</div>
+                  <h3 class="post-title">{{blog.title}}</h3>
+                  <p class="post-excerpt">
+                  {{blog.excerpt}}
+                  </p>
+                  <div class="post-meta">
+                    <span>👨‍💻 {{blog.writer}}</span>
+                    <span>📅 {{blog.date}}</span>
+                    <span>👁 {{blog.views}} بازدید</span>
+                    </div>
+                  </div>
+                  <div class="post-tags p-3">
+                    <span class="post-tag">{{blog.tag}}</span>
                   </div>
                 </div>
               </a>
             </div>
-          </div>
-        </div>
+          {% endfor %}
         {% endif %}
       </div>
     </section>

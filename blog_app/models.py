@@ -26,3 +26,10 @@ class Blog(models.Model):
     
     def __str__(self):
         return self.title
+    
+class Detail(models.Model):
+    blog = models.ForeignKey(Blog, on_delete=models.CASCADE)
+    content = models.TextField(verbose_name="محتوا")
+    
+    def __str__(self):
+        return self.blog.title
