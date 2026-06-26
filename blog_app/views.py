@@ -1,4 +1,10 @@
 from django.shortcuts import render
+from .models import Category, Blog
 
 def blog(request):
-    return render(request, 'blog_app/blog.html')
+    # Category
+    categories = Category.objects.all()
+    # Blog
+    blogs = Blog.objects.all()
+    
+    return render(request, 'blog_app/blog.html', context={'categories': categories, 'blogs': blogs})

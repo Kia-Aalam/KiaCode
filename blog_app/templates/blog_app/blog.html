@@ -30,11 +30,10 @@
       <div class="d-flex flex-wrap gap-2">
         <!--for-->
         <button class="filter-btn active">همه</button>
-        <button class="filter-btn">Python</button>
-        <button class="filter-btn">Django</button>
-        <button class="filter-btn">React</button>
-        <button class="filter-btn">DevOps</button>
-        <button class="filter-btn">Git</button>
+
+          {% for category in categories %}
+            <button class="filter-btn" data-filter="{{ category.slug }}">{{ category.name }}</button>
+          {% endfor %}
       </div>
     </div>
   </div>
@@ -45,35 +44,46 @@
   <div class="container">
     <!-- Posts Grid -->
     <div class="row g-4">
-      <!--for-->
-      <div class="col-12 col-md-6 col-lg-4">
-        <a href="#" class="post-card">
-          <div
-            class="post-thumb"
-            style="background: linear-gradient(135deg, #667eea22, #764ba222)"
-          >
-            🐍
-          </div>
-          <div class="post-body">
-            <div class="post-category">Python</div>
-            <h3 class="post-title">۱۰ ترفند پایتون که باید بدونی</h3>
-            <p class="post-excerpt">
-              ترفندهایی که کدنویسیت رو سریع‌تر و تمیزتر میکنه. از list
-              comprehension تا decorator.
-            </p>
-            <div class="post-meta">
-              <span>👨‍💻 کیا اعلم</span>
-              <span>📅 ۱۵ خرداد ۱۴۰۳</span>
-              <span>👁 ۲,۴۳۰ بازدید</span>
+      {% if blogs %}
+        {% for blog in blogs %}
+          <div class="col-12 col-md-6 col-lg-4">
+            <a href="#" class="post-card">
+              <div
+                class="post-thumb"
+                style="background: linear-gradient(135deg, #667eea22, #764ba222)"
+              >
+                
+                {% if blog.image %}
+                  <img src="{{ blog.image.url }}" alt="{{ blog.title }}" >
+                {% else %}
+                  <img src="{% static 'img/default.png' %}" alt="default" >
+                {% endif %}
+                
               </div>
-            </div>
-            <div class="post-tags p-3">
-              <span class="post-tag">Python</span>
-              <span class="post-tag">Tips</span>
-            </div>
+              <div class="post-body">
+                <div class="post-category">Python</div>
+                <h3 class="post-title">{{blog.title}}</h3>
+                <p class="post-excerpt">
+                 {{blog.excerpt}}
+                </p>
+                <div class="post-meta">
+                  <span>👨‍💻 {{blog.instructor}}</span>
+                  <span>📅 {{blog.date}}</span>
+                  <span>👁 {{blog.views}} بازدید</span>
+                  </div>
+                </div>
+                <div class="post-tags p-3">
+                  <span class="post-tag">{{blog.tag}}</span>
+                </div>
+              </div>
+            </a>
           </div>
-        </a>
-      </div>
+        {% endfor %}
+      {% else %}
+          <div class="text-center">
+            <h1>Soon</h1>
+          </div>
+      {% endif %}
 
       <!-- Pagination -->
       <div class="pagination-wrap">
