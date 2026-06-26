@@ -17,7 +17,7 @@ class Blog(models.Model):
     )
     title = models.CharField(max_length=50, verbose_name="عنوان دوره")
     excerpt = models.TextField(verbose_name="توضیحات")
-    instructor = models.CharField(max_length=100, verbose_name="مدرس")
+    writer = models.CharField(max_length=100, verbose_name="نویسنده")
     date = models.DateField(verbose_name="تاریخ", default=date.today)
     views = models.IntegerField(verbose_name="بازدید")
     tags = models.CharField(max_length=50, blank=True, verbose_name="تگ‌ها")
