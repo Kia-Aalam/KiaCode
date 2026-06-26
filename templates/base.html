@@ -15,29 +15,41 @@
     <!-- ═══════════════════════════════════════
      HERO / معرفی کوتاه
     ════════════════════════════════════════ -->
-    <section class="hero-section text-center">
+    <section class="profile-section mt-4">
       <div class="container">
-        <div><img src="{% static 'img/hero-avatar.png' %}" class="hero-avatar mx-auto" alt="👨‍💻"></div>
-        <h1 class="hero-name">سلام، من <span>کیا اعلم</span> هستم</h1>
-        <p class="hero-title">
-          Back-end Developer · Django
-        </p>
-        <p class="hero-title">
-          توسعه دهنده وب (Back-end)
-          <br>
-          کیاکد برای ارتباط با من و به اشتراک گذاری دانش و اخبار برنامه نویسی طراحی شده است
-        </p>
-        <div class="d-flex gap-3 justify-content-center flex-wrap">
-          <a href="{% url 'courses_list' %}" class="btn" style="color:#e94560;">مشاهده دوره‌ها</a>
-          <a href="#" class="btn" style="color:#e94560;">آخرین مقالات</a>
-        </div>
-        <div class="skill-tags">
-          <span class="skill-tag">MySQL</span>
-          <span class="skill-tag">Html-Css</span>
-          <span class="skill-tag">++C</span>
-          <span class="skill-tag">Git</span>
-          <span class="skill-tag">Django</span>
-          <span class="skill-tag">Python</span>
+        <div class="row align-items-center g-5">
+          <div class="col-12 col-md-4 d-flex justify-content-center align-items-center">
+            <img src="{% static 'img/hero-avatar.png' %}" alt="👨‍💻" class="img-fluid about_img" style="
+            width: 80%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 25px;
+            box-shadow: 0 0 20px 8px rgba(255,255,255,0.1);
+            display: block; ">
+          </div>
+          <div class="col-12 col-md-8">
+            <h1 class="profile-name">سلام، من <span style="color: #e94560;">کیا اعلم</span> هستم</h1>
+            <p class="profile-role">
+              Back-end Developer · Django
+            </p>
+            <p class="profile-bio">
+              توسعه دهنده وب (Back-end)
+              <br>
+              کیاکد برای ارتباط با من و به اشتراک گذاری دانش و اخبار برنامه نویسی طراحی شده است
+            </p>
+            <div class="d-flex gap-3 flex-wrap mt-4">
+              <a href="{% url 'about_me' %}" class="btn btn btn-outline-danger home-btn">درباره من</a>
+              <a href="{% url 'blog' %}" class="btn btn btn-outline-danger home-btn">آخرین مقالات</a>
+            </div>
+            <div class="d-flex gap-3 flex-wrap mt-5">
+              <span class="skill-tag">MySQL</span>
+              <span class="skill-tag">Html-Css</span>
+              <span class="skill-tag">++C</span>
+              <span class="skill-tag">Git</span>
+              <span class="skill-tag">Django</span>
+              <span class="skill-tag">Python</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -50,22 +62,33 @@
     <section class="stats-bar mt-5">
       <div class="container">
         <div class="row">
-          <div class="col-6 col-md-3 stat-item mb-2">
-            <div class="stat-num">0</div>
-            <div class="stat-lbl">دانشجو / Students</div>
-          </div>
-          <div class="col-6 col-md-3 stat-item mb-2">
-            <div class="stat-num">0</div>
-            <div class="stat-lbl">مقاله / Articles</div>
-          </div>
-          <div class="col-6 col-md-3 stat-item mb-2">
-            <div class="stat-num">Soon</div>
-            <div class="stat-lbl">دوره / Courses</div>
-          </div>
-          <div class="col-6 col-md-3 stat-item mb-2">
-            <div class="stat-num">2 سال</div>
-            <div class="stat-lbl">تجربه / Experience</div>
-          </div>
+          {% if number.experience and number.articles and number.courses %}
+            <div class="col-6 col-md-4 stat-item mb-2">
+              <div class="stat-num">{{number.experience}} سال</div>
+              <div class="stat-lbl">تجربه / Experience</div>
+            </div>
+            <div class="col-6 col-md-4 stat-item mb-2">
+              <div class="stat-num">{{number.articles}}</div>
+              <div class="stat-lbl">مقاله / Articles</div>
+            </div>
+            <div class="col-6 col-md-4 stat-item mb-2">
+              <div class="stat-num">{{number.courses}}</div>
+              <div class="stat-lbl">دوره / Courses</div>
+            </div>
+          {% else %}
+            <div class="col-6 col-md-4 stat-item mb-2">
+              <div class="stat-num">2 سال</div>
+              <div class="stat-lbl">تجربه / Experience</div>
+            </div>
+            <div class="col-6 col-md-4 stat-item mb-2">
+              <div class="stat-num">soon</div>
+              <div class="stat-lbl">مقاله / Articles</div>
+            </div>
+            <div class="col-6 col-md-4 stat-item mb-2">
+              <div class="stat-num">Soon</div>
+              <div class="stat-lbl">دوره / Courses</div>
+            </div>
+          {% endif %}
         </div>
       </div>
     </section>
@@ -82,42 +105,10 @@
             <h2>آخرین <span>مقالات</span> · Latest Posts</h2>
             <p>جدیدترین نوشته‌ها در حوزه برنامه‌نویسی و توسعه وب</p>
           </div>
-          <a href="#" class="see-all-link mt-1">همه مقالات ←</a>
+          <a href="{% url 'blog' %}" class="see-all-link mt-1">همه مقالات ←</a>
         </div>
 
-        <!--
-        <div class="row g-4">
-          / Featured Post /
-          <div class="col-12 col-lg-5">
-            <a href="/blog/django-rest-api" class="blog-card-featured h-100">
-              <div
-                class="blog-thumb-featured"
-                style="background: linear-gradient(135deg, #1a1a2e, #0f3460)"
-              >
-                🚀
-              </div>
-              <div class="blog-body p-4">
-                <div class="d-flex align-items-center gap-2 mb-2">
-                  <span class="featured-badge">ویژه</span>
-                  <span class="blog-category">Django</span>
-                </div>
-                <h3 class="blog-title" style="font-size: 1.15rem">
-                  ساخت REST API با Django از صفر تا استقرار روی سرور
-                </h3>
-                <p class="blog-excerpt">
-                  در این مقاله کامل یاد میگیریم چطور یه API حرفه‌ای با Django
-                  REST Framework بسازیم، تست بنویسیم و روی VPS دیپلوی کنیم.
-                </p>
-                <div class="blog-meta">
-                  <span>۱۵ خرداد ۱۴۰۳</span>
-                  <span>⏱ ۱۲ دقیقه مطالعه</span>
-                </div>
-              </div>
-            </a>
-          </div>
-          -->
-
-          {% if blog.model %}
+        {% if blog.model %}
           <!-- Regular Posts -->
           <div class="col-12 col-lg-7 mb-5">
             <div class="row g-4">
@@ -150,7 +141,6 @@
               </div>
             </div>
           </div>
-        </div>
         {% endif %}
       </div>
     </section>

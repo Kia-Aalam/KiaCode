@@ -1,19 +1,15 @@
 from django.shortcuts import render, redirect
-from home_app.models import Footer, Contact, About
+from home_app.models import Information, Contact, About
 from courses_app.models import Course
 
 def base_page(request):
     # course list
     courses = Course.objects.all()
     
-    # message
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        message = request.POST.get('message')
-        Footer.objects.create(username=username, message=message)
-        return redirect('home')
+    # stats bar-information
+    information = Information.objects.all()
     
-    return render(request, 'base.html', context={'courses': courses})
+    return render(request, 'base.html', context={'courses': courses, 'number': information})
 
 def about_me(request):
     about = About.objects.all()

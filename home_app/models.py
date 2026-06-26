@@ -1,8 +1,10 @@
 from django.db import models
 
-class Footer(models.Model):
-    username = models.CharField(max_length=100)
-    message = models.TextField()
+class Information(models.Model):
+    experience = models.IntegerField(null=True)
+    articles = models.IntegerField(null=True)
+    courses = models.IntegerField(null=True)
+
     
 class Contact(models.Model):
     username = models.CharField(max_length=100, null=False)
