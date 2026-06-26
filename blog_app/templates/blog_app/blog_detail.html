@@ -1,9 +1,15 @@
-{% extends 'blog.html' %}
+{% extends 'base.html' %}
 {% load static %}
 {% block content %}
 <!-- Hero -->
 <section class="blog-detail-hero">
-  <div class="blog-detail-thumb">🚀</div>
+  <div class="blog-detail-thumb">
+    {% if blog.image %}
+      <img src="{{ blog.image.url }}" alt="{{ blog.title }}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+    {% else %}
+      <img src="{% static 'img/default.png' %}" alt="default" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+    {% endif %}
+  </div>
   <div class="blog-detail-hero-overlay">
     <div class="container">
       <div class="breadcrumb-custom">
@@ -28,21 +34,12 @@
   <div class="container">
     <div class="blog-detail-content">
       <p>
-        {{details.content}}
+        {{detail.content}}
       </p>
 
       <!-- Tags -->
       <div class="blog-detail-tags">
         <span class="post-tag-detail">{{blog.tag}}</span>
-      </div>
-
-      <!-- Nav -->
-      <div class="post-navigation">
-        <a href="#" class="post-nav-btn">← مقاله قبلی</a>
-        <a href="{% url 'blog' %}" class="post-nav-btn back-btn"
-          >بازگشت به بلاگ</a
-        >
-        <a href="#" class="post-nav-btn">مقاله بعدی →</a>
       </div>
     </div>
   </div>

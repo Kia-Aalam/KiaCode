@@ -28,12 +28,10 @@
 
       <!-- Category Filter -->
       <div class="d-flex flex-wrap gap-2">
-        <!--for-->
         <button class="filter-btn active">همه</button>
-
-          {% for category in categories %}
-            <button class="filter-btn" data-filter="{{ category.slug }}">{{ category.name }}</button>
-          {% endfor %}
+        {% for category in categories %}
+          <button class="filter-btn" data-filter="{{ category.slug }}">{{ category.name }}</button>
+        {% endfor %}
       </div>
     </div>
   </div>
@@ -47,72 +45,67 @@
       {% if blogs %}
         {% for blog in blogs %}
           <div class="col-12 col-md-6 col-lg-4">
-            <a href="#" class="post-card">
+            <a href="{% url 'blog_detail' blog.id %}" class="post-card">
               <div class="card-img-placeholder" style="position: relative; overflow: hidden; width: 100%; height: 320px; background: #f0f0f0;">
-                
                 {% if blog.image %}
                   <img src="{{ blog.image.url }}" alt="{{ blog.title }}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
                 {% else %}
                   <img src="{% static 'img/default.png' %}" alt="default" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
                 {% endif %}
-                
               </div>
               <div class="post-body">
-                <div class="post-category">{{categories.name}}</div>
-                <h3 class="post-title">{{blog.title}}</h3>
-                <p class="post-excerpt">
-                 {{blog.excerpt}}
-                </p>
+                <div class="post-category">{{ category.name|default:"دسته‌بندی" }}</div>
+                <h3 class="post-title">{{ blog.title }}</h3>
+                <p class="post-excerpt">{{ blog.excerpt }}</p>
                 <div class="post-meta">
-                  <span>👨‍💻 {{blog.writer}}</span>
-                  <span>📅 {{blog.date}}</span>
-                  <span>👁 {{blog.views}} بازدید</span>
-                  </div>
+                  <span>👨‍💻 {{ blog.writer }}</span>
+                  <span>📅 {{ blog.date }}</span>
+                  <span>👁 {{ blog.views }} بازدید</span>
                 </div>
                 <div class="post-tags p-3">
-                  <span class="post-tag">{{blog.tag}}</span>
+                  <span class="post-tag">{{ blog.tag }}</span>
                 </div>
               </div>
             </a>
           </div>
         {% endfor %}
       {% else %}
-          <div class="text-center">
-            <h1>Soon</h1>
-          </div>
+        <div class="text-center">
+          <h1>Soon</h1>
+        </div>
+      {% endif %}
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination-wrap">
+      <!-- قبلی -->
+      {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}" class="page-btn">→ قبلی</a>
+      {% else %}
+        <button class="page-btn disabled">→ قبلی</button>
       {% endif %}
 
-      <!-- Pagination -->
-      <div class="pagination-wrap">
-        <!-- قبلی -->
-        {% if page_obj.has_previous %}
-        <a href="?page={{ page_obj.previous_page_number }}" class="page-btn">→ قبلی</a>
-        {% else %}
-        <button class="page-btn disabled">→ قبلی</button>
-        {% endif %}
-    
-        <!-- ۵ صفحه اطراف صفحه فعلی -->
-        {% for num in page_obj.paginator.page_range %}
-          {% if num >= page_obj.number|add:"-2" and num <= page_obj.number|add:"2" %}
-            {% if num == page_obj.number %}
-              <button class="page-btn active">{{ num }}</button>
-            {% else %}
-              <a href="?page={{ num }}" class="page-btn">{{ num }}</a>
-            {% endif %}
-          {% elif num == 1 or num == page_obj.paginator.num_pages %}
+      <!-- ۵ صفحه اطراف صفحه فعلی -->
+      {% for num in page_obj.paginator.page_range %}
+        {% if num >= page_obj.number|add:"-2" and num <= page_obj.number|add:"2" %}
+          {% if num == page_obj.number %}
+            <button class="page-btn active">{{ num }}</button>
+          {% else %}
             <a href="?page={{ num }}" class="page-btn">{{ num }}</a>
-          {% elif num == page_obj.number|add:"-3" or num == page_obj.number|add:"3" %}
-            <span class="page-dots">...</span>
           {% endif %}
-        {% endfor %}
-    
-        <!-- بعدی -->
-        {% if page_obj.has_next %}
-          <a href="?page={{ page_obj.next_page_number }}" class="page-btn">بعدی ←</a>
-        {% else %}
-          <button class="page-btn disabled">بعدی ←</button>
+        {% elif num == 1 or num == page_obj.paginator.num_pages %}
+          <a href="?page={{ num }}" class="page-btn">{{ num }}</a>
+        {% elif num == page_obj.number|add:"-3" or num == page_obj.number|add:"3" %}
+          <span class="page-dots">...</span>
         {% endif %}
-      </div>
+      {% endfor %}
+
+      <!-- بعدی -->
+      {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}" class="page-btn">بعدی ←</a>
+      {% else %}
+        <button class="page-btn disabled">بعدی ←</button>
+      {% endif %}
     </div>
   </div>
 </section>
